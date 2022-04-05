@@ -53,7 +53,7 @@ def timeConversion(s):
 
 
 if __name__ == '__main__':
-    # In the first of console get time as a string and store it in variable 's'  
+    # In the first line of console, gets input time as a string and store it in variable 's'  
     s = input()
     # That's all in main function, just call the function 'timeConversion' and pass the argument s
     timeConversion(s)
