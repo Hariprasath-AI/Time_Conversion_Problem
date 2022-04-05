@@ -8,11 +8,7 @@ def timeConversion(s):
     meridian = s[8] + s[9]
     # prioritizing condition is important for optimal time complexity
     # In real time project, time complexity is purely depends upon the input meridian(AM or PM).
-    # We can't say number of inputs in 'AM' is higher/lower or no. of inputs in 'PM' is higher/lower, it varies on time to time.
-    # The worst case time complexity for this problem is 4n i.e., eg: "12:00:00AM" 1st checks if its is 'PM', goes for elif part checks for 'AM'.  
-    # In elif 1st it checks for hour value != 12 .Then goes for elif part and  checks hour == 12, condition satisfies and executes.
-    # Only at this case, the input is checked at 4 conditions i.e., maximum time complexity (4n)
-    # Here n is number of inputs. Out of 24 hours in a day, only 1 seconds will be the worst case in real time project of time conversion.
+    # We can't say number of inputs in 'AM' is higher/lower or number of inputs in 'PM' is higher/lower, it varies on time to time.
  
     # 1. From "12:00:00AM" to "12:59:59AM" - period of 1 hour
     # 2. From "01:00:00AM" to "11:59:59AM" - periiod of 11 hour
