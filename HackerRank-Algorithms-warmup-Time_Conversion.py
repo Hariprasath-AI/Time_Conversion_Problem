@@ -1,22 +1,49 @@
+# Here we have to convert 12 hour format to 24 hour Railway time format
 def timeConversion(s):
+    # Processing Input: Input value is in string,so we have separate each character and store it in a list
     s = list(s)
+    # Eg: '12:00:00AM'
+    # Hour value is at index 0 and 1, meridian value is at index 8 and 9
     hour = int(s[0] + s[1])
-    meridian = s[8]+ s[9]
-    if meridian == 'AM':
-        if hour == 12:
-            s[0], s[1] = '0', '0'
-            print("".join(s[: -2]))
-        else:
-            print("".join(s[: -2]))
-    elif meridian == 'PM':
-        if hour < 12:
-            hour += 12
-            hour = list(str(hour))
-            s[0], s[1] = hour[0], hour[1]
-            print("".join(s[: -2]))
-        else:
-            print("".join(s[: -2]))
+    meridian = s[8] + s[9]
+    # prioritizing condition is important for time complexity
+    # In real time project, time complexity is purely depends upon the input meridian(AM or PM).
+    # We can't say number of inputs in 'AM' is higher/lower or no. of inputs in 'PM' is higher/lower, it varies on time to time.
+    # The worst case time complexity for this problem is 4n i.e., eg: "12:00:00AM" 1st checks if its is 'PM', goes for elif part checks for 'AM'.  
+    # In elif 1st it checks for hour value != 12 .Then goes for elif part and  checks hour == 12, condition satisfies and executes.
+    # Only at this case, the input is checked at 4 conditions i.e., maximum time complexity (4n)
+    # Here n is number of inputs. Out of 24 hours in a day, only 1 seconds will be the worst case in real time project of time conversion.
+ 
+    # 1. From "12:00:00AM" to "12:59:59AM" - period of 1 hour
+    # 2. From "01:00:00AM" to "11:59:59AM" - periiod of 11 hour
+    # 3. From "12:00:00PM" to "12:59:59PM" - period of 1 hour
+    # 4. From "01:00:00PM" to "11:59:59PM" - period of 11 hour
+
+    # Now, we can easily prioritize conditions based upon the higher number of time period
+
+    if meridian == 'PM' and hour < 12: # satisfies 4th point and this is most possiblility
+
+        # check hour is less than 12. If so, add the hour value to 12 and just replace hour value in the postion s[0] and s[1] 
+        hour += 12
+        hour = list(str(hour))
+        s[0], s[1] = hour[0], hour[1]
+        # join function in list is used here to join each character to form a string and neglect s[8] and s[9] i.e., meridian value
+        print("".join(s[: -2]))
+
+    elif meridian == 'AM' and hour != 12: # satisfies 2nd point and this is most possibility 
+        print("".join(s[: -2]))
+    
+    elif meridian == 'PM' and hour == 12: # satisfies 3rd point and this is least possibility
+        print("".join(s[: -2]))
+
+    elif meridian == 'AM' and hour == 12: # satisfies 1st point and this is least possibility
+        s[0], s[1] = '0', '0'
+        print("".join(s[: -2]))
+        
+    
 
 if __name__ == '__main__':
+    # In the first of console get time as a string and store it in variable 's'  
     s = input()
+    # That's all in main function, just call the function 'timeConversion' and pass the argument s
     timeConversion(s)
