@@ -11,7 +11,7 @@ def timeConversion(s):
     # We can't say number of inputs in 'AM' is higher/lower or number of inputs in 'PM' is higher/lower, it varies on time to time.
  
     # 1. From "12:00:00AM" to "12:59:59AM" - period of 1 hour
-    # 2. From "01:00:00AM" to "11:59:59AM" - periiod of 11 hour
+    # 2. From "01:00:00AM" to "11:59:59AM" - period of 11 hour
     # 3. From "12:00:00PM" to "12:59:59PM" - period of 1 hour
     # 4. From "01:00:00PM" to "11:59:59PM" - period of 11 hour
 
