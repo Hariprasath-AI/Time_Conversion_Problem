@@ -6,7 +6,7 @@ def timeConversion(s):
     # Hour value is at index 0 and 1, meridian value is at index 8 and 9
     hour = int(s[0] + s[1])
     meridian = s[8] + s[9]
-    # prioritizing condition is important for time complexity
+    # prioritizing condition is important for optimal time complexity
     # In real time project, time complexity is purely depends upon the input meridian(AM or PM).
     # We can't say number of inputs in 'AM' is higher/lower or no. of inputs in 'PM' is higher/lower, it varies on time to time.
     # The worst case time complexity for this problem is 4n i.e., eg: "12:00:00AM" 1st checks if its is 'PM', goes for elif part checks for 'AM'.  
