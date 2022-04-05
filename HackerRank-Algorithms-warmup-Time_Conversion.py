@@ -35,7 +35,8 @@ def timeConversion(s):
     elif meridian == 'AM' and hour == 12: # satisfies 1st point and this is least possibility
         s[0], s[1] = '0', '0'
         print("".join(s[: -2]))
-    # Here there are 4 conditions. Just imagine our code runs for 24 hours a day with the dealy of 1minute and gets input from system time
+
+    # In our optimal solution there are 4 conditions. Just imagine our code runs for 24 hours a day with the dealy of 1minute and gets input from system time
     # Starts from "12:00:00AM" runs till "11:59:59PM"
     # Number of inputs are 24 hours * 60 minutes * 1 only once for a minute = 1440
     # The 1st if condition checks 1 * 11 * 60 = 660 Expressions
@@ -49,7 +50,7 @@ def timeConversion(s):
     # 2nd elif : fron "12:00:00AM" to "12:59:59AM" - 1hour, (4 * 1 * 60) = 240 exps
     # Total Expression checks for combined/shortened solution = 3000
     # Whereas Total Expressions for our optimal solution  = 2400
-    
+
 
 if __name__ == '__main__':
     # In the first of console get time as a string and store it in variable 's'  
